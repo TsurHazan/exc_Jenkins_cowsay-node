@@ -1,7 +1,7 @@
 node {
     docker.image('docker').inside('-v /var/run/docker.sock:/var/run/docker.sock') {
         stage('Build and Test') {
-            sh 'docker-compose -f ./ops/workspace/docker-compose.yml up'
+            sh 'docker-compose -f ../../../home/tsurhazan/exercises/week_3/Jenkins/cowsay/exc_Jenkins_cowsay-node/ops/workspace/docker-compose.yml up'
         }
 
         stage('Code Analysis with SonarQube') {
