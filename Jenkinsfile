@@ -1,5 +1,5 @@
 node {
-    docker.image('docker').inside('-v /var/run/docker.sock:/var/run/docker.sock') {
+    docker.image('docker').inside {
         stage('Build and Test') {
             sh 'docker-compose -f ./ops/workspace/docker-compose.yml up --build --abort-on-container-exit'
         }
@@ -12,3 +12,4 @@ node {
     }
 }
 
+//('-v /var/run/docker.sock:/var/run/docker.sock')
