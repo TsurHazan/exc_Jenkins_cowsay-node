@@ -1,8 +1,7 @@
 node {
-    docker.image('docker').inside {
+    docker.image('docker').inside('-v /var/run/docker.sock:/var/run/docker.sock') {
         stage('Build and Test') {
-            cd "~/exc_Jenkins_cowsay-node"
-            sh 'docker-compose -f ./ops/workspace/docker-compose.yml up --build --abort-on-container-exit'
+            sh 'docker-compose -f ./ops/workspace/docker-compose.yml up'
         }
 
         stage('Code Analysis with SonarQube') {
