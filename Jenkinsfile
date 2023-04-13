@@ -1,7 +1,9 @@
 node {
     docker.image('docker').inside {
         stage('Build and Test') {
-            sh 'docker-compose -f ~/exercises/week_3/Jenkins/cowsay/exc_Jenkins_cowsay-node/ops/workspace/ up'
+            sh 'cd ~/exercises/week_3/Jenkins/cowsay/exc_Jenkins_cowsay-node/ops/workspace/'
+            sh 'pwd'
+            sh 'docker-compose up'
         }
 
         stage('Code Analysis with SonarQube') {
