@@ -1,8 +1,10 @@
 node {
+    stage('Add Jenkins user to Docker group') {
+        sh 'sudo usermod -aG docker jenkins'
+    }
+
     docker.image('docker').inside('-v /var/run/docker.sock:/var/run/docker.sock') {
         stage('Build and Test') {
-            echo "Agent name: ${env.NODE_NAME}"
-            sh "sudo usermod -aG docker ${env.NODE_NAME}"
             sh 'docker-compose -f ./ops/workspace/docker-compose.yml up --build --abort-on-container-exit'
         }
 
@@ -13,5 +15,6 @@ node {
         }
     }
 }
+
 
 //('-v /var/run/docker.sock:/var/run/docker.sock')
