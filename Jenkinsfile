@@ -1,5 +1,5 @@
 node {
-    docker.image('docker').inside('-v /var/run/docker.sock:/var/run/docker.sock') {
+    docker.image('docker').inside {
         stage('Build and Test') {
             sh 'ls'
             sh 'docker-compose -f ../../../home/tsurhazan/exercises/week_3/Jenkins/cowsay/exc_Jenkins_cowsay-node/ops/workspace/docker-compose.yml up'
