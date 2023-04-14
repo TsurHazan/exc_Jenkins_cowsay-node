@@ -12,7 +12,7 @@ node {
             checkout scm
             sh 'docker build -t cowsay .'
             sh 'docker run --rm -d -p 9100:8080 cowsay'
-            sh 'docker stop cowsaydocker stop $(docker ps -q --filter ancestor=cowsay)'
+            sh 'docker stop $(docker ps -q --filter ancestor=cowsay)'
         }
     } 
 }
