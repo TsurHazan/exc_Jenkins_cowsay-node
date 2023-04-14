@@ -2,6 +2,7 @@ node {
     stage('Build and Test') {
         sh 'node --version'
         dir('ops/workspace') {
+            sh 'pwd'
             sh 'docker-compose up'
         }
     }
