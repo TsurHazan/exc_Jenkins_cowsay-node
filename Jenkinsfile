@@ -7,7 +7,7 @@ node {
             sh 'docker stop $(docker ps -q --filter ancestor=cowsay)'
     }
     stage('Code Analysis with SonarQube') {
-        withSonarQubeEnv('SonarQube Server') {
+        withSonarQubeEnv('my-default-config') {
             sh 'node --version'
             checkout scm
             sh 'docker build -t cowsay .'
