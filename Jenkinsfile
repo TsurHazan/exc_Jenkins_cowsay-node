@@ -3,7 +3,7 @@ node {
             sh 'node --version'
             checkout scm
             sh 'docker build -t cowsay .'
-            sh 'docker run --rm -p 9100:8080 --time 15s cowsay'
+            sh 'docker run --rm -d -p 9100:8080 cowsay'
             sh 'docker stop cowsay'
     }
     stage('Code Analysis with SonarQube') {
@@ -11,7 +11,7 @@ node {
             sh 'node --version'
             checkout scm
             sh 'docker build -t cowsay .'
-            sh 'docker run --rm -p 9100:8080 cowsay'
+            sh 'docker run --rm -d -p 9100:8080 cowsay'
             sh 'docker stop cowsay'
         }
     } 
