@@ -9,4 +9,4 @@ RUN npm i
 
 COPY ./code /app/code
 
-CMD npm start
+CMD export PORT=$PORT && npm start

@@ -3,13 +3,16 @@ node {
         stage('Build and Test') {
             sh 'node --version'
             checkout scm
-            sh 'docker build -t cowsay /ops/render'
-            sh 'docker run --rm -p 8080:8080 cowsay'
+            sh 'docker build -t cowsay .'
+            sh 'docker run --rm -p 9100:8080 cowsay'
         //}
     }
     stage('Code Analysis with SonarQube') {
         withSonarQubeEnv('SonarQube Server') {
-            sh 'docker-compose -f ops/workspace/docker-compose.yml run --rm sonar-scanner'
+            sh 'node --version'
+            checkout scm
+            sh 'docker build -t cowsay .'
+            sh 'docker run --rm -p 9100:8080 cowsay'
         }
     } 
 }
