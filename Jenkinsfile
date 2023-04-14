@@ -1,9 +1,12 @@
 node {
-    stage('Build and Test') {
-        sh 'node --version'
+    docker.image('node:alpine').inside {
+        stage('Build and Test') {
+            sh 'node --version'
             sh 'pwd'
+            checkout scm
             sh 'docker build -t cowsay .'
             sh 'docker run --rm -p 8080:8080 cowsay'
+        }
     }
     stage('Code Analysis with SonarQube') {
         withSonarQubeEnv('SonarQube Server') {
