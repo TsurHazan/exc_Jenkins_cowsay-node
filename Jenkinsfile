@@ -3,7 +3,7 @@ node {
         stage('Build and Test') {
             sh 'node --version'
             checkout scm
-            sh 'docker build -t cowsay .'
+            sh 'docker build -t cowsay /ops/render'
             sh 'docker run --rm -p 8080:8080 cowsay'
         //}
     }
