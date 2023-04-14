@@ -2,7 +2,7 @@ node {
     stage('Build and Test') {
         sh 'node --version'
         dir('ops/workspace') {
-            sh '/usr/local/bin/docker-compose up'
+            sh 'docker-compose up'
         }
     }
     stage('Code Analysis with SonarQube') {
