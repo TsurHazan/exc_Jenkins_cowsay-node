@@ -3,7 +3,7 @@ node {
         sh 'node --version'
         dir('ops/workspace') {
             sh 'pwd'
-            sh 'docker compose -f /home/tsurhazan/exercises/week_3/Jenkins/cowsay/exc_Jenkins_cowsay-node/ops/workspace/docker-compose.yml up'
+            sh 'sudo docker compose -f /home/tsurhazan/exercises/week_3/Jenkins/cowsay/exc_Jenkins_cowsay-node/ops/workspace/docker-compose.yml up'
         }
     }
     stage('Code Analysis with SonarQube') {
