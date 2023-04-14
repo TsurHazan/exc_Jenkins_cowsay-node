@@ -3,7 +3,7 @@ node {
         sh 'node --version'
         dir('ops/workspace') {
             sh 'pwd'
-            sh 'docker-compose up'
+            sh 'docker compose up'
         }
     }
     stage('Code Analysis with SonarQube') {
