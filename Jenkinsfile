@@ -3,9 +3,9 @@ node {
         stage('Build and Test') {
             sh 'node --version'
             checkout scm
-            sh 'pwd'
-            sh 'docker build -t cowsay .'
-            sh 'docker run --rm -p 8080:8080 cowsay'
+            sh 'sudo docker compose -f /ops/workspace/docker-compose.yml up'
+         //   sh 'docker build -t cowsay .'
+         //   sh 'docker run --rm -p 8080:8080 cowsay'
         //}
     }
     stage('Code Analysis with SonarQube') {
