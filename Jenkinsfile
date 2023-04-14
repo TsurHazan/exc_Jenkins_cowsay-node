@@ -2,7 +2,8 @@ node {
     stage('Build and Test') {
         docker.image('node:16.17.1-alpine').inside {
             sh 'node --version'
-            sh 'docker-compose up'
+            sh 'pwd'
+            sh 'docker-compose -f /ops/workspace up'
         }
     }
      stage('Code Analysis with SonarQube') {
